@@ -99,7 +99,7 @@ export class Loans {
         bookId: Number(formData.get('bookId')),
         loanDate: formData.get('loanDate') as string,
         returnDate: formData.get('returnDate') as string,
-        returned,
+        returned: this.isEditMode ? this.selectedLoan.returned : false
       };
       this.createLoan(loan);
     } else {

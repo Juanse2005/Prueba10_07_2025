@@ -119,6 +119,7 @@
                   class="form-check-input"
                   name="returned"
                   [checked]="selectedLoan.returned"
+                  [disabled]="!isEditMode"
                 />
                 <label class="form-check-label" for="returned">Devuelto</label>
               </div>
