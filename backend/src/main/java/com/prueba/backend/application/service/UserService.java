@@ -1,7 +1,7 @@
 package com.prueba.backend.application.service;
 
 import com.prueba.backend.application.dto.UserDTO;
-import com.prueba.backend.domain.exception.UserNotFoundException;
+import com.prueba.backend.domain.exception.ResourceNotFoundException;
 import com.prueba.backend.domain.model.User;
 import com.prueba.backend.domain.repository.UserRepository;
 
@@ -37,7 +37,7 @@ public class UserService {
 
     log.info("Getting user with ID: {}", id);
     User user = userRepository.findById(id)
-        .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + id));
+        .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + id));
 
     return modelMapper.map(user, UserDTO.class);
     }
@@ -46,7 +46,7 @@ public class UserService {
         log.info("Updated user with ID: {}", id);
 
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + id));
 
                 dto.setId_user(id);
        User userUpdated = modelMapper.map(dto, User.class);
@@ -67,7 +67,7 @@ public class UserService {
         log.warn("Deleting user with ID: {}", id);
         
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User not found with ID:" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with ID:" + id));
         userRepository.deleteById(id);
     }
 }
