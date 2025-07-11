@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="fw-bold">PRESTAMOS</h1>
+    <button class="btn btn-success" (click)="openEditModal()">
+      <i class="bi bi-plus-circle me-2"></i> Nuevo Prestamo
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table align-middle table-dark users-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Usuario</th>
+          <th>Libro</th>
+          <th>Fecha de préstamo</th>
+          <th>Fecha de devolución</th>
+          <th>Devuelto</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loan of loanModel; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ loan.userId }}</td>
+          <td>{{ loan.bookId }}</td>
+          <td>{{ loan.loanDate }}</td>
+          <td>{{ loan.returnDate }}</td>
+          <td>{{ loan.returned ? "Sí" : "No" }}</td>
+          <td>
+            <button
+              (click)="openEditModal(loan)"
+              class="btn btn-primary btn-sm"
+            >
+              Editar
+            </button>
+            <button
+              (click)="deleteLoan(loan.id_loan)"
+              class="btn btn-danger btn-sm"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal para la creacion y edicion de usuarios -->
+
+    <div
+      class="modal fade"
+      id="editModal"
+      tabindex="-1"
+      aria-labelledby="editModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <form (submit)="saveLoan($event)">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModalLabel">
+                {{ isEditMode ? "Editar Prestamo" : "Nuevo Prestamo" }}
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="userId">Usuario</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="userId"
+                  [value]="selectedLoan.userId || ''"
+                  [disabled]="isEditMode"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="bookId">Libro</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="bookId"
+                  [value]="selectedLoan.bookId || ''"
+                  [disabled]="isEditMode"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="loanDate">Fecha de préstamo</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="loanDate"
+                  [value]="selectedLoan.loanDate || ''"
+                  [disabled]="isEditMode"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="returnDate">Fecha de devolución</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="returnDate"
+                  [value]="selectedLoan.returnDate || ''"
+                  [disabled]="isEditMode"
+                  required
+                />
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  name="returned"
+                  [checked]="selectedLoan.returned"
+                />
+                <label class="form-check-label" for="returned">Devuelto</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-success">
+                Guardar Cambios
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

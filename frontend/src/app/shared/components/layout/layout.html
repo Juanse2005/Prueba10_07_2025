@@ -1,0 +1,40 @@
+<div class="layout-container">
+  <header class="layout-header">
+    <nav>
+      <ul class="nav-list">
+        <div class="nav-header">
+          <i class="bi bi-book-half"></i>
+          <h4>DASHBOARD</h4>
+        </div>
+        <li>
+          <a routerLink="/home" routerLinkActive="active-link">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/books" routerLinkActive="active-link">
+            <i class="bi bi-book"></i>
+            <span>Libros</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/users" routerLinkActive="active-link">
+            <i class="bi bi-people"></i>
+            <span>Usuarios</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/loans" routerLinkActive="active-link">
+            <i class="bi bi-journal-arrow-up"></i>
+            <span>Préstamos</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="layout-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

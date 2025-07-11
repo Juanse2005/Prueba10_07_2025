@@ -1,0 +1,26 @@
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 65vh;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .table-responsive {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.users-table td,
+.users-table th {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+button {
+  margin-left: 1rem;
+}

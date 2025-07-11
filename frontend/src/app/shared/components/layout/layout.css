@@ -1,0 +1,132 @@
+.layout-container {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  min-height: 80vh;
+  max-width: 90%;
+  margin: 3rem auto;
+  background-color: rgba(255, 255, 255, 0.253);
+  border: 1px solid white;
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  gap: 1rem;
+}
+
+.layout-header {
+  min-width: 200px;
+  margin: 1rem;
+  background-color: #e6e3e3;
+  color: white;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #000000;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-list a:hover {
+  background-color: #646464b9;
+}
+
+.nav-list i {
+  font-size: 1.2rem;
+  color: inherit;
+}
+
+.active-link {
+  background-color: #111111;
+  color: white !important;
+}
+
+.layout-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+h3 {
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
+.modal-backdrop.show {
+  opacity: var(--bs-backdrop-opacity);
+  z-index: 1040;
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  .layout-header {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .nav-list a {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .layout-content {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-header h4 {
+    font-size: 1rem;
+  }
+
+  .nav-list a {
+    gap: 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .layout-content {
+    padding: 0.5rem;
+  }
+}
