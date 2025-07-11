@@ -27,27 +27,36 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
+    // Endpoints para manejar las operaciones CRUD de usuarios
+
+    // Obtiene todos los usuarios
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAll() {
         return ResponseEntity.ok(userService.getAll());
 
     }
 
+    // Obtiene un usuario unico
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getById(@PathVariable Long id) {
         UserDTO user = userService.getById(id);
         return ResponseEntity.ok(user);
     }
+
+    // Edita un usuario unico
     @PutMapping("/{id}")
         public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserDTO dto) {
         return ResponseEntity.ok(userService.update(id,dto));
         }
 
+    // Guarda un usuario nuevo
     @PostMapping
     public ResponseEntity<UserDTO> save(@RequestBody UserDTO dto) {
         return ResponseEntity.ok(userService.save(dto));
     }
 
+    // Elimina un usuario unico
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         userService.delete(id);

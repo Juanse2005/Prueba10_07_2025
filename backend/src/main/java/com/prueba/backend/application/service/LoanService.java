@@ -56,14 +56,20 @@ public class LoanService {
         return loanRepository.existsByBookIdAndReturnedFalse(bookId);
     }
 
-    public void markAsReturned(Long id) {
-    log.info("Getting loan with ID: {}", id);
-    Loan loan = loanRepository.findById(id)
-    .orElseThrow(() -> new RuntimeException("Loan not found with ID: " + id));
-    loan.setReturned(true);
-    loanRepository.save(loan);
-}
+        public void markAsReturned(Long id) {
+        log.info("Getting loan with ID: {}", id);
+        Loan loan = loanRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Loan not found with ID: " + id));
+        loan.setReturned(true);
+        loanRepository.save(loan);
+    }
 
+    public long countUsersWithLoans() {
+        return loanRepository.findAll().stream()
+                .map(loan -> loan.getUser().getId_user())
+                .distinct()
+                .count();
+    }
 
 
     public LoanResponseDTO save(LoanRequestDTO dto) {

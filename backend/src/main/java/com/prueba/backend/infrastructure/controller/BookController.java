@@ -30,27 +30,36 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    // Endpoints para manejar las operaciones CRUD de libros
+
+    // Obtiene todos los libros
     @GetMapping
     public ResponseEntity<List<BookDTO>> getAll() {
         return ResponseEntity.ok(bookService.getAll());
 
     }
 
+
+    // Obtiene un libro unico
     @GetMapping("/{id}")
     public ResponseEntity<BookDTO> getById(@PathVariable Long id) {
         BookDTO book = bookService.getById(id);
         return ResponseEntity.ok(book);
     }
+
+    // Edita un libro unico
     @PutMapping("/{id}")
         public ResponseEntity<BookDTO> update(@PathVariable Long id, @RequestBody BookDTO dto) {
         return ResponseEntity.ok(bookService.update(id,dto));
     }
 
+    // Guarda un libro nuevo
         @PostMapping
         public ResponseEntity<BookDTO> save(@RequestBody BookDTO dto) {
             return ResponseEntity.ok(bookService.save(dto));
         }
 
+    // Elimina un libro unico
         @DeleteMapping("/{id}")
         public ResponseEntity<Void> delete(@PathVariable Long id) {
             bookService.delete(id);
