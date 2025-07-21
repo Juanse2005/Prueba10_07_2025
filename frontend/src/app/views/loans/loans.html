@@ -20,8 +20,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let loan of loanModel; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
+        <tr *ngFor="let loan of loanModel">
+          <td>{{ loan.id_loan}}</td>
           <td>{{ loan.userId }}</td>
           <td>{{ loan.bookId }}</td>
           <td>{{ loan.loanDate }}</td>

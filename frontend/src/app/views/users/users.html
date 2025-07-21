@@ -19,8 +19,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of usersModel; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
+        <tr *ngFor="let user of usersModel">
+          <td>{{ user.id_user }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.lastName }}</td>
           <td>{{ user.email }}</td>

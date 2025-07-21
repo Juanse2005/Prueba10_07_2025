@@ -1,5 +1,5 @@
 📚 Sistema de Gestión Académica
-Este proyecto es una aplicación web para la gestión de prestamos de libros de bibliotecas. Está desarrollado con Angular 22 en el frontend y Spring Boot en el backend.
+Este proyecto es una aplicación web para la gestión de prestamos de libros de bibliotecas, cuenta con registro de prestamos, validacion de devolucion y validacion de prestamo. Está desarrollado con Angular 22 en el frontend y Spring Boot en el backend.
 
 Se hizo uso de arquitectura modular y lazy loading en el fontend. Siguiendo los principios solid, clean arquitecture en springboot.
 

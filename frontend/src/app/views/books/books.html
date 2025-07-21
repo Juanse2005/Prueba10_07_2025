@@ -18,8 +18,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of bookModel; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
+        <tr *ngFor="let book of bookModel">
+          <td >{{ book.id }}</td>
           <td>{{ book.title }}</td>
           <td>{{ book.writer }}</td>
           <td>{{ book.gender }}</td>
